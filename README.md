@@ -13,7 +13,6 @@ background information, on why this project was done.
 1. install mysql
 1. python setup.py build # should install python dependencies
 1. echo "CREATE DATABASE id CHARACTER SET utf8; GRANT ALL ON id.* to '{username}'@'localhost' identified by '{password}';" | mysql -u root -p
-
 1. update DATABASE_USER and DATABASE_PASSWORD in settings.py
 1. update MEDIA_ROOT in settings.py to be the full path to the static directory
 1. change AUTHORITIES_URL as appropriate in settings.py 
