@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/style.css" />
+
+    {% block head_extra %}
+    {% endblock %}
+
+    <title>LCSH: {{page_title}}</title>
+</head>
+
+<body>
+
+    {% block header %}
+    {% endblock %}
+
+    <div id="main">
+        <div id="main_content">
+        {% block body %}
+        {% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

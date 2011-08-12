@@ -1,0 +1,164 @@
+{% extends "page_with_header.html" %}
+
+{% block head_extra %}
+
+    <link 
+        rel="alternate" 
+        type="application/rdf+xml" 
+        href="{% url authorities_concept_rdf concept.lccn %}" />
+
+    <link 
+        rel="alternate" 
+        type="application/json" 
+        href="{% url authorities_concept_json concept.lccn %}" />
+
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/style.css" />
+
+    <title>LCSH: {{ concept.pref_label }}</title>
+    <script type="text/javascript" src="/static/swfobject.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+<div id="concept">
+    <div id="gearspace">
+            <strong>You need to upgrade your Flash Player</strong>
+    </div>
+
+    <h1>{{ concept.pref_label }}</h1>
+
+    {% for note in concept.scope_notes.all %}
+        <p property="skos:scopeNote">
+        {{ note.text }}
+        </p>
+    {% endfor %}
+
+    {% if alt_labels %}
+    <b>Alternate Labels:</b> 
+    {{ alt_labels|join:", " }}
+    <br /><br />
+    {% endif %}
+
+    {% if broader or extra_broader %}
+    <b>Broader Terms:</b>
+    <ul>
+        {% for c in extra_broader %}
+        <li>
+        <a href="{% url authorities_concept c.lccn %}">
+            {{ c.pref_label }}
+        </a>
+        {% endfor %}
+        {% for c in broader %}
+        <li>
+        <a href="{% url authorities_concept c.lccn %}">
+            {{ c.pref_label }}
+        </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if narrower %}
+    <b>Narrower Terms:</b>
+    <ul>
+        {% for c in narrower %}
+        <li><a href="{{ c.lccn }}">{{ c.pref_label }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if related %}
+    <b>Related Terms:</b>
+    <ul>
+        {% for c in related %}
+        <li><a href="{{ c.lccn }}">{{ c.pref_label }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if concept.examples.all %}
+    <b>Examples:</b>
+    <ul>
+        {% for note in concept.examples.all %}
+        <li>{{ note.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if concept.editorial_notes.all %}
+    <b>Editorial Notes:</b>
+    <ul>
+        {% for note in concept.editorial_notes.all %}
+        <li>{{ note.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if concept.history_notes.all %}
+    <b>History Notes:</b>
+    <ul>
+        {% for note in concept.history_notes.all %}
+        <li>{{ note.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    {% if concept.change_notes.all %}
+    <b>Change Notes:</b>
+    <ul>
+        {% for note in concept.change_notes.all %}
+        <li>{{ note.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if concept.sources.all %}
+    <b>Sources:</b>
+    <ul>
+        {% for source in concept.sources.all %}
+        <li>{{ source.text }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if concept.lcc %}
+    <b>LC Classification:</b> {{ concept.lcc }}
+    <br />
+    <br />
+    {% endif %}
+
+    {% if concept.created %}
+    <b>Created:</b> {{ concept.created }}
+    <br />
+    <br />
+    {% endif %}
+
+    {% if concept.modified %}
+    <b>Last Modified:</b>
+    <span>{{ concept.modified }}</span>
+    <br />
+    <br />
+    {% endif %}
+
+    <b>Alternate Formats:</b>
+    <a href="{% url authorities_concept_rdf concept.lccn %}">rdf</a>,
+    <a href="{% url authorities_concept_json concept.lccn %}">json</a>
+
+</div>
+
+<script type="text/javascript">
+    var so = new SWFObject("/static/GraphGear.swf", "graphgear", "500", "400", "8");
+    so.addVariable("graphXMLFile", "{% url authorities_concept_graphgear concept.lccn %}");
+    //so.addParam("allowScriptAccess", "always");
+    so.addParam("scale", "noborder");
+    so.addParam("salign", "tl");
+    //so.addParam("base", "examples");
+    so.write("gearspace");
+</script>
+
+{% endblock %}

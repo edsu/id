@@ -1,0 +1,46 @@
+{% extends "site.html" %}
+{% load humanize %}
+
+{% block body %}
+
+<div id="search">
+
+    <div id="logo">
+        id.loc.gov/authorities
+    </div>
+
+    <div id="description">
+        Search {{count|intcomma}} subject and name authority records
+    </div>
+
+    <form action="{% url authorities_search %}" method="get">
+        <div id="search_entry">
+            <input id="search_box" name="q" placeholder="Enter your query"
+                   results="10" type="search" />
+        </div>
+        <div id="search_button">
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+
+    <div id="recent_queries">
+        {% if recent_queries %}
+        Recent queries: 
+        {% for q in recent_queries %}
+            <a href="?q={{q.query}}">{{q.query}}</a>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div id="toplevel_concepts">
+        Some top-level concepts:
+        <a href="{% url authorities_concept "sh85118553" %}">Science</a>,
+        <a href="{% url authorities_concept "sh85062913" %}">Humanities</a>,
+        <a href="{% url authorities_concept "sh85082139" %}">Mathematics</a>,
+        <a href="{% url authorities_concept "sh85088762" %}">Music</a>,
+        <a href="{% url authorities_concept "sh85133147" %}">Technology</a>,
+        <a href="{% url authorities_concept "sh85061212" %}">History</a>
+    </div>
+
+</div>
+{% endblock %}

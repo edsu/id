@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+    <leader>00973cz   2200181n  4500</leader>
+    <controlfield tag="001">sh 00000011 </controlfield>
+    <controlfield tag="003">DLC</controlfield>
+    <controlfield tag="005">20071012075310.0</controlfield>
+    <controlfield tag="008">000927|| anannbabn          |a ana      </controlfield>
+    <datafield tag="010" ind1=" " ind2=" ">
+      <subfield code="a">sh 00000011 </subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DLC</subfield>
+      <subfield code="b">eng</subfield>
+      <subfield code="c">DLC</subfield>
+      <subfield code="d">DLC</subfield>
+      <subfield code="d">ABAU</subfield>
+    </datafield>
+    <datafield tag="150" ind1=" " ind2=" ">
+      <subfield code="a">ActionScript (Computer program language)</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="w">g</subfield>
+      <subfield code="a">Domain-specific programming languages</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="w">g</subfield>
+      <subfield code="a">Object-oriented programming languages</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="w">g</subfield>
+      <subfield code="a">Scripting languages (Computer science)</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Work cat.: 00047429: Sanders, B. Flash ActionScript f/x and design, 2000:</subfield>
+      <subfield code="b">prelims. (ActionScript is a programming language that Flash provides) CIP galley (ActionScript is a scripting language that enables developers to supercharge their Flash movies)</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Media Division Design and Software Development Studio WWW site, Aug. 25, 2006</subfield>
+      <subfield code="b">(Actionscript is a modern object-oriented language)</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Wikipedia, July 19, 2007</subfield>
+      <subfield code="b">(Category: Domain-specific programming languages ... ActionScript)</subfield>
+    </datafield>
+</record>

@@ -1,0 +1,48 @@
+{% extends "page_with_header.html" %}
+
+{% block body %}
+
+<div id="page_results">
+    {% ifnotequal paginator.num_pages 1 %}
+
+    {% if page.has_previous %}
+    <a href="?q={{q|urlencode}}&page={{page.previous_page_number}}">previous</a>
+    &nbsp;
+    {% endif %}
+
+    {% for p in page_range %}
+    {% ifequal p page_num %}
+    {{p}}
+    {% else %}
+    <a href="?q={{q|urlencode}}&page={{p}}">{{p}}</a>
+    {% endifequal %}
+    {% endfor %}
+    {% endifnotequal %}
+
+    {% if page.has_next %}
+    &nbsp;
+    <a href="?q={{q|urlencode}}&page={{page.next_page_number}}">next</a>
+    {% endif %}
+</div>
+
+<div id="search_results">
+    <table>
+    <tr>
+    <th>Heading</th>
+    <th>LCCN</th>
+    </tr>
+    {% for concept in page.object_list %}
+    <tr class="{% cycle 'white' 'grey' %}">
+        <td>
+        <a href="{% url authorities_concept concept.lccn %}">
+            {{ concept.pref_label }}
+        </a>
+        </td>
+        <td>
+            {{ concept.lccn }}
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

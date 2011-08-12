@@ -1,0 +1,25 @@
+{% extends "site.html" %}
+
+{% block header %}
+<div id="header">
+    <div id="header_content">
+        <div id="logo">
+            <a href="{% url authorities_home %}">
+            id.loc.gov/authorities 
+            </a>
+        </div>
+        <div id="search">
+        <form action="{% url authorities_search %}" method="get"
+            id="search_form">
+            <div id="search_entry">
+                <input id="search_box" name="q" placeholder="Enter your query"
+                results="10" type="search" value="{{q}}" />
+            </div>
+            <div id="search_button">
+                <input type="submit" value="Search" />
+            </div>
+            <p class="clearer"></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<graph title="" bgcolor="eeeeee" linecolor="cccccc" viewmode="display" width="500" height="400">
+    <node 
+        id="{{concept.lccn}}" 
+        text="{{concept.pref_label}}" 
+        link="{{concept.uri}}"
+        scale="100" 
+        color="0000ff" 
+        textcolor="0000ff"/>
+
+    {% if concept.narrower.all %}
+    {% for c in concept.narrower.all %}
+    <node 
+        id="{{c.lccn}}" 
+        text="{{c.pref_label}}" 
+        link="{{c.uri}}" 
+        scale="75" 
+        color="ccffff" 
+        textcolor="0000ff"/>
+    <edge 
+        sourceNode="{{concept.lccn}}" 
+        targetNode="{{c.lccn}}" 
+        label="narrower" 
+        textcolor="555555"/>
+    {% endfor %}
+    {% endif %}
+
+    {% if concept.broader.all %}
+    {% for c in concept.broader.all %}
+    <node 
+        id="{{c.lccn}}" 
+        text="{{c.pref_label}}" 
+        link="{{c.uri}}"
+        scale="75" 
+        color="ccffcc" 
+        textcolor="0000ff"/>
+    <edge 
+        sourceNode="{{concept.lccn}}" 
+        targetNode="{{c.lccn}}" 
+        label="broader" 
+        textcolor="555555"/>
+    {% endfor %}
+    {% endif %}
+
+    {% if concept.related.all %}
+    {% for c in concept.related.all %}
+    <node 
+        id="{{c.lccn}}" 
+        text="{{c.pref_label}}" 
+        link="{{c.uri}}"
+        scale="75" 
+        color="ffccff" 
+        textcolor="0000ff"/>
+    <edge 
+        sourceNode="{{concept.lccn}}" 
+        targetNode="{{c.lccn}}" 
+        label="related" 
+        textcolor="555555"/>
+    {% endfor %}
+    {% endif %}
+</graph>

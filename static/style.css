@@ -1,0 +1,181 @@
+body {
+  font: 13px Helvetica, sans-serif;
+  text-align: center;
+}
+
+#concept {
+  min-height: 500px;
+  text-align: left;
+  background: white;
+}
+
+#gearspace {
+    margin: 10px;
+    float: right;
+}
+
+.description {
+  padding: 3%;
+  background: #ffffee;
+  border: thin black inset;
+}
+
+.search {
+  padding: 3%;
+  background: #ffffee;
+  border: thin black inset;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+#search #logo {
+  font-size: 20pt;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+#search #description {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+#search #search_entry {
+  width: 410px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #eee;
+  margin:0 auto 5px auto;
+}
+
+#search #search_box {
+  width: 320px;
+  font-size: 16px;
+}
+
+#search #search_button input {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+#header #search {
+  position: absolute;
+  z-index: 100;
+  height: 40px;
+  top: 10px;
+  left: 195px;
+}
+
+#header #search_entry {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+
+#header #search_button {
+  display: block;
+  float: left;
+  margin-right: 5px;
+  line-height: 40px;
+  height: 40px;
+}
+
+#main {
+   background: #fff; 
+}
+
+#main_content {
+  width: 795px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#header {
+  border-bottom: 3px solid #aaa;
+  height: 60px;
+  background: #fff;
+}
+
+#header_content {
+  width: 795px;
+  margin: 0 auto;
+  position: relative;
+  height: 60px;
+}
+
+#header #logo {
+  margin-top: 20px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 11pt;
+}
+
+#header #search {
+  position: absolute;
+  z-index: 100;
+  height: 40px;
+  top: 10px;
+  left: 195px;
+}
+
+#header #search_entry {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+
+#header #search_button {
+  display: block;
+  float: left;
+  margin-right: 5px;
+  line-height: 40px;
+  height: 40px;
+}
+
+.clearer {
+	clear: both;
+}
+
+#search_results {
+  text-align: left;
+  border: 1;
+}
+
+#search_results table {
+  padding: 0;
+  width: 550px;
+  margin: auto;
+  border: thin gray solid;
+}
+
+#search_results th {
+  background-color: #eee;
+}
+
+tr.grey {
+  background-color: #eee;
+}
+
+#page_results {
+  margin: 10px;
+
+}
+
+#recent_queries {
+  margin-top: 50px;
+}
+
+#toplevel_concepts {
+  margin-top: 20px;
+}
+
